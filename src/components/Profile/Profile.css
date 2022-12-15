@@ -1,0 +1,35 @@
+.container {
+    margin-top: 5%;
+    font-size: large;
+}
+
+.first {
+    border: 1px solid black;
+    padding: 2%;
+}
+
+.second {
+    border: 1px solid black;
+    padding: 2%;
+}
+
+.icon-user {
+    font-size: 56px;
+    margin-bottom: 9%;
+    margin-left: 40%;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: medium;
+}
+
+.dropdown {
+    width: 61%;
+    height: 14%;
+}
+
+.btn-me {
+    margin-top: 4%;
+    font-size: 15px;
+}

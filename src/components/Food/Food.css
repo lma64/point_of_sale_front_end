@@ -1,0 +1,7 @@
+.item-notclicked {
+    border: none;
+}
+
+.item-clicked {
+    border: 2px solid #2387b1;
+}
