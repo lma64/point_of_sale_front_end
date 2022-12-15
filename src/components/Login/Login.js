@@ -30,7 +30,7 @@ function Login() {
         </div>
         <br></br>
         <div className="button-container">
-          <Link to = "/main"><button type="button" class="btn btn-primary btn-me">Login</button></Link>
+          <Link to = "/inventory"><button type="button" class="btn btn-primary btn-me">Login</button></Link>
         </div>
       </form>
     </div>
