@@ -3,21 +3,21 @@ import axios from 'axios'
 import '../create/Create.css'
 
 const Create = () => {
-    const[itemName, setitemName] = useState('')
-    const[itemCat, setCat] = useState('')
-    const[itemPrice, setPrice] = useState('')
-    const[itemDes, setDes] = useState('')
-    const[itemQuant, setQuant] = useState('')
+    const[name, setitemName] = useState('')
+    const[categoryId, setCat] = useState('')
+    const[price, setPrice] = useState('')
+    const[description, setDes] = useState('')
+    const[quantity, setQuant] = useState('')
 
     console.log(itemName)
 
     const sendDataToApi = () => {
         axios.post("http://localhost:8080/api/product/add-product", {
-            itemName,
-            itemCat,
-            itemPrice,
-            itemDes,
-            itemQuant
+            name,
+            categoryId,
+            price,
+            description,
+            quantity
         })
     }
   return (
