@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import InventoryService from './InventoryService'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useHistory  } from 'react-router-dom'
 
 export default class ListInventoryComponent extends Component {
     constructor(props) {
@@ -18,8 +18,8 @@ export default class ListInventoryComponent extends Component {
     }
 
     editProduct(id) {
-        let navigate = useNavigate();
-        navigate(`/update/${id}`)
+        let history = useHistory();
+        history.push(`/update/${id}`)
     }
 
   render() {
