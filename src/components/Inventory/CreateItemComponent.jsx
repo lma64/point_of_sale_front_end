@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import InventoryService from './InventoryService';
 
 export default class CreateItemComponent extends Component {
@@ -12,12 +12,12 @@ export default class CreateItemComponent extends Component {
           description: '',
           quantity: ''
         }   
-        this.changeNameHandler = this.changeNameHandler.bind(this);
-        this.changeCatHandler = this.changeCatHandler.bind(this);
-        this.changePriceHandler = this.changePriceHandler.bind(this);
-        this.changeDesHandler = this.changeDesHandler.bind(this);
-        this.changeQuantityHandler = this.changeQuantityHandler.bind(this);
-        this.saveItem = this.saveItem.bind(this);
+        //this.changeNameHandler = this.changeNameHandler.bind(this);
+        //this.changeCatHandler = this.changeCatHandler.bind(this);
+        //this.changePriceHandler = this.changePriceHandler.bind(this);
+        //this.changeDesHandler = this.changeDesHandler.bind(this);
+        //this.changeQuantityHandler = this.changeQuantityHandler.bind(this);
+        //this.saveItem = this.saveItem.bind(this);
     }
 
     saveItem = (e) => {
@@ -26,9 +26,11 @@ export default class CreateItemComponent extends Component {
       console.log('product => ' + JSON.stringify(item))
 
       InventoryService.createProduct(item).then(res =>{
-        this.props.history.push('/')
+        const { history } = this.props
+        history.push("/")
       });
     }
+
 
     changeNameHandler = (event) => {
       this.setState({
@@ -102,7 +104,8 @@ export default class CreateItemComponent extends Component {
 
                   <button className='btn btn-success fs-4' onClick={this.saveItem}>Save</button>
                   <Link to='/'><button className='btn btn-danger fs-4'  
-                  style={{marginLeft: '10px'}}>Cancel</button></Link>
+                    style={{marginLeft: '10px'}}>Cancel</button>
+                  </Link>
                   
                 </form>
 

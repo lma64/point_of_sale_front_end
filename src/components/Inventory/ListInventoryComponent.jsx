@@ -8,6 +8,7 @@ export default class ListInventoryComponent extends Component {
         this.state = {
             products : []
         }
+        //this.editProduct = this.editProduct.bind(this)
     }
 
     componentDidMount(){
@@ -15,6 +16,11 @@ export default class ListInventoryComponent extends Component {
             this.setState({ products: res.data })
         });
     }
+
+    editProduct(id) {
+        this.props.history.push(`/update/${id}`)
+    }
+
   render() {
     return (
       <div className='container'>
@@ -48,6 +54,9 @@ export default class ListInventoryComponent extends Component {
                                 <td>{product.price}</td>
                                 <td>{product.description}</td>
                                 <td>{product.quantity}</td>
+                                <td>
+                                    <button onClick={ () => this.editProduct(product.id)} className='btn btn-info fs-3'>Update</button>
+                                </td>
                             </tr>
                         )
                     }
@@ -55,6 +64,6 @@ export default class ListInventoryComponent extends Component {
             </table> 
         </div>
       </div>
-    )
-  }
+        )
+    }
 }
