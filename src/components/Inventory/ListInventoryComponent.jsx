@@ -18,16 +18,16 @@ export default class ListInventoryComponent extends Component {
   render() {
     return (
       <div className='container'>
-        <h2 className='text-center'>Inventory List</h2>
+        <h1 className='text-center'>Inventory List</h1>
         <br></br>
         <div className='row'>
             <div className='col'>
-               <button className='btn btn-primary fs-4'>Add Item</button>
+               <Link to='/add-inventory'><button className='btn btn-primary fs-4'>Add Item</button></Link>
             </div>
 
         </div>
-        <div className='row'>
-            <table className='table table-striped table-bordered'>
+        <div className='row'> 
+            <table className='table table-striped table-bordered fs-4'>
                 <thead>
                     <tr>
                         <th>Item Name</th>
