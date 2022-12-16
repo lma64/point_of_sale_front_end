@@ -11,7 +11,7 @@ const Upgrade = () => {
     const[id, setID] = useState(null)
 
     const sendDataToApi = () => {
-        axios.post("http://localhost:8080/api/product/add-product", {
+        axios.post("http://localhost:8080/api/product/update-product", + '/' + id, {
             name,
             categoryId,
             price,
@@ -32,7 +32,7 @@ const Upgrade = () => {
     }, [])
   return (
     <div className='cont fs-4'>
-        <h1 className='text-center'>Add Product</h1>
+        <h1 className='text-center'>Update Product</h1>
         <div className='row'>
             <div className='col-6 mt-4'>
                 <label>Name:</label>
