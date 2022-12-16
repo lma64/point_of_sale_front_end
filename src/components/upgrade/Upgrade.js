@@ -8,10 +8,10 @@ const Upgrade = () => {
     const[price, setPrice] = useState('')
     const[description, setDes] = useState('')
     const[quantity, setQuant] = useState('')
-    const[id, setID] = useState(null)
+    const[ID, setID] = useState(null)
 
     const sendDataToApi = () => {
-        axios.put("http://localhost:8080/api/product/update-product", + '/' + id, {
+        axios.put(`http://localhost:8080/api/product/update-product/${ID}`, {
             name,
             categoryId,
             price,
@@ -28,7 +28,7 @@ const Upgrade = () => {
         setPrice(localStorage.getItem('price'))
         setDes(localStorage.getItem('description'))
         setQuant(localStorage.getItem('quantity'))
-        setID(localStorage.getItem('id'))
+        setID(localStorage.getItem('ID'))
     }, [])
   return (
     <div className='cont fs-4'>
