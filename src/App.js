@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Create from './components/create/Create';
 import Read from './components/read/Read';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
-  const[apiData]
   return (
     <div className="App">
-      <div>
-      <Create/>
-      </div>
-      <div>
-        <Read/>
-      </div>
+      <BrowserRouter>
+					<Routes>
+            <Route path="/" element={<Read />}/>
+            <Route path="/create" element={<Create />}/>
+					</Routes>
+				</BrowserRouter>
     </div>
   );
 }

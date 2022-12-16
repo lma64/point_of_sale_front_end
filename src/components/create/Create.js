@@ -9,7 +9,6 @@ const Create = () => {
     const[description, setDes] = useState('')
     const[quantity, setQuant] = useState('')
 
-    console.log(itemName)
 
     const sendDataToApi = () => {
         axios.post("http://localhost:8080/api/product/add-product", {
