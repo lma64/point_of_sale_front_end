@@ -12,12 +12,12 @@ export default class CreateItemComponent extends Component {
           description: '',
           quantity: ''
         }   
-        //this.changeNameHandler = this.changeNameHandler.bind(this);
-        //this.changeCatHandler = this.changeCatHandler.bind(this);
-        //this.changePriceHandler = this.changePriceHandler.bind(this);
-        //this.changeDesHandler = this.changeDesHandler.bind(this);
-        //this.changeQuantityHandler = this.changeQuantityHandler.bind(this);
-        //this.saveItem = this.saveItem.bind(this);
+        this.changeNameHandler = this.changeNameHandler.bind(this);
+        this.changeCatHandler = this.changeCatHandler.bind(this);
+        this.changePriceHandler = this.changePriceHandler.bind(this);
+        this.changeDesHandler = this.changeDesHandler.bind(this);
+        this.changeQuantityHandler = this.changeQuantityHandler.bind(this);
+        this.saveItem = this.saveItem.bind(this);
     }
 
     saveItem = (e) => {

@@ -8,7 +8,7 @@ export default class ListInventoryComponent extends Component {
         this.state = {
             products : []
         }
-        //this.editProduct = this.editProduct.bind(this)
+        this.editProduct = this.editProduct.bind(this)
     }
 
     componentDidMount(){
