@@ -18,7 +18,6 @@ const Upgrade = () => {
             description,
             quantity
         })
-
         alert("your product has been added")
     }
 
@@ -93,6 +92,9 @@ const Upgrade = () => {
         <br></br>
         <button className='btn btn-primary fs-4' type='submit' onClick={sendDataToApi}>Update</button>
         <Link to='/'><button className='btn btn-danger ml-2 fs-4'>Cancel</button></Link>
+        <div>
+            <Link to='/read'><button className='btn btn-info'>Back to table</button></Link>
+        </div>
     </div>
   )
 }

@@ -5,15 +5,33 @@ import { Link } from 'react-router-dom';
 const Read = () => {
     const[apiData, setApiData] = useState([]);
     useEffect(() => {
-      axios.get("http://localhost:8080/api/product/get-all").
+      axios.get(`http://localhost:8080/api/product/get-all`).
       then((getData) => {
         setApiData(getData.data)
       })
     }, [])
 
-    const setID = (id) => {
-        console.log(id)
+    const setData = (id, name, categoryId, price, description, quantity) => {
         localStorage.setItem('ID', id)
+        localStorage.setItem('name', name)
+        localStorage.setItem('categoryId', categoryId)
+        localStorage.setItem('price', price)
+        localStorage.setItem('description', description)
+        localStorage.setItem('quantity', quantity)
+    }
+
+    const getData = () => {
+        axios.get(`http://localhost:8080/api/product/get-all`)
+            .then((getData) => {
+                setApiData(getData.data);
+            })
+    }
+
+    const onDelete = (id) => {
+        axios.delete(`http://localhost:8080/api/product/delete-product/${id}`)
+        .then(() => {
+            getData();
+        })
     }
   return (
     <div className='container fs-4'>
@@ -41,13 +59,13 @@ const Read = () => {
                             <td>{data.quantity}</td>
                             <td>
                                 <Link to='/upgrade'>
-                                    <button className='btn btn-success' onClick={() => setID(data.id)}>Update</button>
+                                    <button className='btn btn-success' onClick={() => setData(data.id, data.name, data.categoryId, data.price, data.description, data.quantity)}>Update</button>
                                 </Link>
                             </td>
                                 
                             <td>
                                 <Link to='/delete'>
-                                <button className='btn btn-danger'>Delete</button>
+                                <button className='btn btn-danger' onClick={() => onDelete}>Delete</button>
                                 </Link>
                             </td>
                         </tr>
