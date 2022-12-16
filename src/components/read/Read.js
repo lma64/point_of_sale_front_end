@@ -12,7 +12,7 @@ const Read = () => {
     }, [])
 
     const setData = (id, name, categoryId, price, description, quantity) => {
-        localStorage.setItem('ID', id)
+        localStorage.setItem('Id', id)
         localStorage.setItem('name', name)
         localStorage.setItem('categoryId', categoryId)
         localStorage.setItem('price', price)
@@ -64,9 +64,7 @@ const Read = () => {
                             </td>
                                 
                             <td>
-                                <Link to='/delete'>
-                                <button className='btn btn-danger' onClick={() => onDelete}>Delete</button>
-                                </Link>
+                                <button className='btn btn-danger' onClick={() => onDelete(data.id)}>Delete</button>
                             </td>
                         </tr>
                     )

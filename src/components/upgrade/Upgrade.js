@@ -8,17 +8,17 @@ const Upgrade = () => {
     const[price, setPrice] = useState('')
     const[description, setDes] = useState('')
     const[quantity, setQuant] = useState('')
-    const[ID, setID] = useState(null)
+    const[Id, setID] = useState(null)
 
     const sendDataToApi = () => {
-        axios.put(`http://localhost:8080/api/product/update-product/${ID}`, {
+        axios.put(`http://localhost:8080/api/product/update-product/${Id}`, {
             name,
             categoryId,
             price,
             description,
             quantity
         })
-        alert("your product has been added")
+        alert("your product has been updated")
     }
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const Upgrade = () => {
         setPrice(localStorage.getItem('price'))
         setDes(localStorage.getItem('description'))
         setQuant(localStorage.getItem('quantity'))
-        setID(localStorage.getItem('ID'))
+        setID(localStorage.getItem('Id'))
     }, [])
   return (
     <div className='cont fs-4'>
@@ -92,9 +92,6 @@ const Upgrade = () => {
         <br></br>
         <button className='btn btn-primary fs-4' type='submit' onClick={sendDataToApi}>Update</button>
         <Link to='/'><button className='btn btn-danger ml-2 fs-4'>Cancel</button></Link>
-        <div>
-            <Link to='/read'><button className='btn btn-info'>Back to table</button></Link>
-        </div>
     </div>
   )
 }
