@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import InventoryService from './InventoryService'
-import { Link, useHistory  } from 'react-router-dom'
 
 export default class ListInventoryComponent extends Component {
     constructor(props) {
@@ -9,17 +8,21 @@ export default class ListInventoryComponent extends Component {
             products : []
         }
         this.editProduct = this.editProduct.bind(this)
+        this.addProduct = this.addProduct.bind(this)
+    }
+
+    addProduct(){
+        this.props.history.push('/add-inventory/-1');
+    }
+    
+    editProduct(id){
+        this.props.history.push(`/add-inventory/${id}`)
     }
 
     componentDidMount(){
         InventoryService.getInventory().then ((res) => {
             this.setState({ products: res.data })
         });
-    }
-
-    editProduct(id) {
-        let history = useHistory();
-        history.push(`/update/${id}`)
     }
 
   render() {
@@ -29,7 +32,7 @@ export default class ListInventoryComponent extends Component {
         <br></br>
         <div className='row'>
             <div className='col'>
-               <Link to='/add-inventory'><button className='btn btn-primary fs-4'>Add Item</button></Link>
+               <button onClick={this.addProduct} className='btn btn-primary fs-4'>Add Item</button>
             </div>
 
         </div>
@@ -56,7 +59,7 @@ export default class ListInventoryComponent extends Component {
                                 <td>{product.description}</td>
                                 <td>{product.quantity}</td>
                                 <td>
-                                    <button onClick={ () => this.editProduct(product.id)} className='btn btn-info fs-3'>Update</button>
+                                    <button onClick={() => this.editProduct(product.id)} className='btn btn-info fs-3'>Update</button>
                                 </td>
                             </tr>
                         )
@@ -68,3 +71,4 @@ export default class ListInventoryComponent extends Component {
         )
     }
 }
+

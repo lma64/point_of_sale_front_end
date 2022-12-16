@@ -16,7 +16,7 @@ class InventoryService {
     }
 
     updateProduct(product, productId) {
-        return axios.put("http://localhost:8080/api/product/get-product-by-id", + '/' + productId, product)
+        return axios.put("http://localhost:8080/api/product/update-product", + '/' + productId, product)
     }
 }
 
