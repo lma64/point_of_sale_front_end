@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import InventoryService from './InventoryService';
 
 export default class UpdateProductComponent extends Component {
@@ -39,7 +39,8 @@ updateItem = (e) => {
   let item = {name: this.state.name, categoryId: this.state.categoryId, price: this.state.price,description: this.state.description, quantity: this.state.quantity}
   console.log('product => ' + JSON.stringify(item))
   InventoryService.updateProduct(item, this.state.id).then(res => {
-    this.props.history.push('/')
+    let navigate = useNavigate();
+    navigate('/')
   })
 }
 
