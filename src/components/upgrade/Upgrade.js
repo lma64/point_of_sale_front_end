@@ -11,7 +11,7 @@ const Upgrade = () => {
     const[id, setID] = useState(null)
 
     const sendDataToApi = () => {
-        axios.post("http://localhost:8080/api/product/update-product", + '/' + id, {
+        axios.put("http://localhost:8080/api/product/update-product", + '/' + id, {
             name,
             categoryId,
             price,
